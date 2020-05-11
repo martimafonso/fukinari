@@ -14,12 +14,6 @@ token = 'Paste your token here'
 activity = discord.Game#(name="discord.py")
 
 
-def consoleOutput(commandName, commandTime):    # Defines consoleOutput()
-    print('')
-    print(r'[Fukinari]')       		  # Divider to make console readable
-    print('\n')        				 # Divider to make console readable
-
-
 async def get_prefix(client, message):
 	with open('prefixes.json','r') as file:
 		prefixes = json.load(file)
