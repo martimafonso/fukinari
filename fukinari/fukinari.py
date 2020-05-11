@@ -2,16 +2,25 @@ import discord
 import asyncio
 import time
 import json
+import os
 import datetime as DT 
 import os  
 from discord.ext import commands, tasks
 from itertools import cycle
+embed = discord.Embed()
+color = discord.Color.red()
+
 
 #https://discord.com/oauth2/authorize?client_id=708369395931545710&scope=bot&permissions=8
 
 status = cycle(['Feito em python com muito stackoverflow', 'Use --help para obter suporte', 'Neko :3', 'Ferroxy#2071 melhor programador do mundo'])
-token = 'Paste your token here'
 activity = discord.Game#(name="discord.py")
+
+
+def consoleOutput(commandName, commandTime):    # Defines consoleOutput()
+    print('')
+    print(r'[Fukinari]')       		  # Divider to make console readable
+    print('\n')        				 # Divider to make console readable
 
 
 async def get_prefix(client, message):
@@ -30,7 +39,7 @@ async def change_status():
 @client.event
 async def on_ready():
 	change_status.start()
-	print(f"Logado como {client.user}\n")
+	print(f"\nLogado como {client.user}\n")
 
 @client.event
 async def on_guild_join(guild):
@@ -65,9 +74,9 @@ async def ping(ctx):
 @client.command(pass_context=True)
 async def help(ctx):
     author = ctx.message.author
-    embed = discord.Embed(
-        color = discord.Color.red()
-    )
+    #embed = discord.Embed(
+        #color = discord.Color.red()
+    #)
     embed.set_author(name='Help')
     embed.add_field(name='logout', value='Shutdown bot', inline=False)	 
     embed.add_field(name='changeprefix', value='Changes bot prefix', inline=False)
@@ -79,6 +88,35 @@ async def clear(ctx, amount=0):
 		await ctx.send("O limite nao pode ser igual ou menor que 0")
 	await ctx.message.delete()
 	await ctx.channel.purge(limit=amount)
+
+@client.event
+async def on_message(message):
+   	 print(f"{message.channel}: {message.author}: {message.content}")
+
+@client.command()
+async def load(ctx, extension):
+	embed = discord.Embed(
+        color = discord.Color.red()
+    	)
+	client.load_extension(f'cogs.{extension}')
+	embed.add_field(name=f"Carregando modulo {extension}", value="Error")
+	await ctx.send(embed=embed)
+
+@client.command()
+async def unload(ctx, extension):
+	client.unload_extension(f'cogs.{extension}')
+	embed = discord.Embed(
+        color = discord.Color.red()
+    	)
+	client.unload_extension(f'cogs.{extension}')
+	embed.add_field(name=f"Descarregando modulo {extension}", value="Modulos")
+	await ctx.send(embed=embed)
+
+		
+
+for filename in os.listdir('./cogs'):
+	if filename.endswith('.py'):
+		client.load_extension(f'cogs.{filename[:-3]}')
 	
 
 client.run(token)	
