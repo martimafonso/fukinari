@@ -14,6 +14,7 @@ color = discord.Color.red()
 #https://discord.com/oauth2/authorize?client_id=708369395931545710&scope=bot&permissions=8
 
 status = cycle(['Feito em python com muito stackoverflow', 'Use --help para obter suporte', 'Neko :3', 'Ferroxy#2071 melhor programador do mundo'])
+token = 'paste your token here'
 activity = discord.Game#(name="discord.py")
 
 
