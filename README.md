@@ -6,7 +6,8 @@ a discord bot written in python
   
 
 >functionalities:
-<li>GUI/CLI dashboard</li>
-<li>Pentest module</li>
-<li>Machine learning module</li>
-<li>Economy module</li>
+<li>[X]Basic bot escope</li>
+<li>[ ]GUI/CLI/WEB dashboard</li>
+<li>[ ]Pentest module</li>
+<li>[ ]Machine learning module</li>
+<li>[ ]Economy module</li>
