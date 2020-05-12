@@ -11,7 +11,7 @@ embed = discord.Embed()
 color = discord.Color.red()
 
 
-#https://discord.com/oauth2/authorize?client_id=708369395931545710&scope=bot&permissions=8
+#https://discord.com/api/oauth2/authorize?client_id=709792048286400512&permissions=8&scope=bot
 
 status = cycle(['Feito em python com muito stackoverflow', 'Use --help para obter suporte', 'Neko :3', 'Ferroxy#2071 melhor programador do mundo'])
 token = 'paste your token here'
