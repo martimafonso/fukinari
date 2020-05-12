@@ -10,7 +10,7 @@ import datetime as DT
 
 activity = discord.Game
 status = cycle(['Feito em python com muito stackoverflow', 'Use --help para obter suporte', 'Neko :3', 'Ferroxy#2071 melhor programador do mundo'])
-token = 'NzA5NzkyMDQ4Mjg2NDAwNTEy.XrrDiw.wM8ECZJNK5l-OfyiSvreV4efbKE'
+token = input('Enter your token')
 
 
 async def get_prefix(client, message):
