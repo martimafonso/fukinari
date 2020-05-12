@@ -1,5 +1,5 @@
 # fukinari
-a discord bot written in python
+A Open-Source discord bot written in python
 
 
 >Contacts:
@@ -13,3 +13,11 @@ a discord bot written in python
 <li>[ ]Pentest module</li>
 <li>[ ]Machine learning module</li>
 <li>[ ]Economy module</li>
+
+#
+
+>Funcionalities caracteristics:
+<li>[ ]Built-in shell</li>
+<li>[ ]Built-in tools (metasploit, netcat, etc...)
+
+
