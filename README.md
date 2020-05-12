@@ -16,7 +16,7 @@ A Open-Source discord bot written in python
 
 #
 
->Funcionalities caracteristics:
+>Caracteristics:
 <li>[ ]Built-in shell</li>
 <li>[ ]Built-in tools (metasploit, netcat, etc...)
 
