@@ -1,11 +1,11 @@
 # fukinari
 a discord bot written in python
 
-<ul>Contacts:</ul>
+>Contacts:
 <li>Discord: Ferroxy#2071</li>
   
 
-<ul>functionalities:</ul>
+>functionalities:
 <li>GUI/CLI dashboard</li>
 <li>Pentest module</li>
 <li>Machine learning module</li>
