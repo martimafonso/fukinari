@@ -1,6 +1,8 @@
 # fukinari
 a discord bot written in python
 
+Contacts:
+<li>Discord: Ferroxy
 functionalities:
 
 <li>GUI/CLI dashboard</li>
