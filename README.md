@@ -2,7 +2,7 @@
 a discord bot written in python
 
 >Contacts:
--Discord: Ferroxy#2071
+<li>Discord: Ferroxy#2071</li>
   
 
 >functionalities:
