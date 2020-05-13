@@ -6,11 +6,30 @@ import json
 import os
 from itertools import cycle
 import datetime as DT 
+import platform
+import wmi
+
+computer = wmi.WMI()
+computer_info = computer.Win32_ComputerSystem()[0]
+os_info = computer.Win32_OperatingSystem()[0]
+proc_info = computer.Win32_Processor()[0]
+gpu_info = computer.Win32_VideoController()[0]
+
+os_name = os_info.Name.encode('utf-8').split(b'|')[0]
+os_version = ' '.join([os_info.Version, os_info.BuildNumber])
+system_ram = float(os_info.TotalVisibleMemorySize) / 1048576  # KB to GB
+
+
+platM = platform.machine()
+osName = os_name
+proc = proc_info.Name
+ram = system_ram
+gpu = gpu_info.Name
 
 
 activity = discord.Game
-status = cycle(['Feito em python com muito stackoverflow', 'Use --help para obter suporte', 'Neko :3', 'Ferroxy#2071 melhor programador do mundo'])
-token = input('Enter your token')
+status = cycle(['Feito em python com muito stackoverflow', 'Use --help para obter suporte', 'Ha uma diferenca entre conhecer o caminho e percorrer o caminho.', 'Ferroxy#2071 melhor programador do mundo', 'https://github.com/Ferroxyy/fukinari'])
+token = 
 
 
 async def get_prefix(client, message):
@@ -69,26 +88,59 @@ async def clear(ctx, amount=0):
 	await ctx.message.delete()
 	await ctx.channel.purge(limit=amount)
 
+@client.command()
+async def info(ctx):
+	name = "\n\u200b"
 
+	embed = discord.Embed(
+	title = 'Bot Info',
+	description = name,
+	color = discord.Color.red()
+	)
+
+	embed.set_footer(text='By Ferroxy')
+	embed.add_field(name=name, value=f"Arch: ```{platM}```", inline=False)
+	embed.add_field(name=name, value=f"OS: ```{osName}```", inline=True)
+	embed.add_field(name=name, value=f"Processor: ```{proc}```", inline=True)
+	embed.add_field(name=name, value=f"RAM: ```{ram}```", inline=True)
+	embed.add_field(name=name, value=f"GPU: ```{gpu}```", inline=True)
+	embed.add_field(name=name, value="[GitHub](https://github.com/Ferroxyy/fukinari)", inline=False)
+	embed.add_field(name=name, value="[Donation](https://github.com/Ferroxyy/fukinari)", inline=True)
+	embed.add_field(name=name, value="[Invite](https://github.com/Ferroxyy/fukinari)", inline=False)
+	embed.add_field(name=name, value="[Suport](https://github.com/Ferroxyy/fukinari)", inline=True)
+	await ctx.send(embed=embed)
 @client.command()
 async def load(ctx, extension):
-	embed = discord.Embed(
-        color = discord.Color.red()
-    	)
-	client.load_extension(f'cogs.{extension}')
-	embed.add_field(name=f"Carregando modulo {extension}", value="Error")
-	await ctx.send(embed=embed)
+	try:
+		embed = discord.Embed(
+        	color = discord.Color.red()
+    		)
+		client.load_extension(f'cogs.{extension}')
+		embed.add_field(name="Modulos", value=f"Carregando modulo {extension}")
+		await ctx.send(embed=embed)
+	except Exception as cmdDsErrorLoad:
+		embed = discord.Embed(
+ 		color = discord.Color.from_rgb(144, 12, 63)
+    		)
+		embed.add_field(name=f"Error {cmdDsErrorLoad}", value=f"Modulo {extension} ja carregado (#-#)")
+		await ctx.send(embed=embed)
 
 @client.command()
 async def unload(ctx, extension):
-	client.unload_extension(f'cogs.{extension}')
-	embed = discord.Embed(
-        color = discord.Color.red()
-    	)
-	client.unload_extension(f'cogs.{extension}')
-	embed.add_field(name=f"Descarregando modulo {extension}", value="Modulos")
-	await ctx.send(embed=embed)
-
+	try:
+		client.unload_extension(f'cogs.{extension}')
+		embed = discord.Embed(
+       		color = discord.Color.red()
+    		)
+		client.unload_extension(f'cogs.{extension}')
+		embed.add_field(name="Modulos", value=f"Descarregando modulo {extension}")
+		await ctx.send(embed=embed)
+	except Exception as cmdDsErrorUnload:
+		embed = discord.Embed(
+ 		color = discord.Color.from_rgb(144, 12, 63)
+    		)
+		embed.add_field(name=f"Error {cmdDsErrorUnload}", value=f"Modulo {extension} ja esta descarregado (#-#)")
+		await ctx.send(embed=embed)
 		
 
 for filename in os.listdir('./cogs'):
