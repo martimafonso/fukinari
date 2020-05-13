@@ -21,4 +21,10 @@ A Open-Source discord bot written in python
 <li>[ ]Built-in tools (metasploit, netcat, etc...)</li>
 <li>[ ]Economy module attached to a new cryptocoin of blockchain with real value</li>
 
+#
+
+>Objectives:
+<li>[x]Simple portscan</li>
+<li>[ ]Payload creator</li>
+
 
