@@ -1,6 +1,10 @@
 # fukinari
 A Open-Source discord bot written in python
 
+Atention, this project have 2 branches master and gui
+master = CLI version
+gui = GUI version
+
 
 >Contacts:
 <li>Discord: Ferroxy#2071</li>
