@@ -25,3 +25,17 @@ new webdashboard()
 
 
 Pentest_module();
+
+Machine learning module
+ Economy module
+Caracteristics:
+
+ Linux, Windows, Mobile
+ Built-in shell
+ Built-in tools (metasploit, netcat, etc...)
+ Economy module attached to a new cryptocoin of blockchain with real value
+Objectives:
+
+ Mobile dashboard
+ Simple portscan
+ Payload creator
