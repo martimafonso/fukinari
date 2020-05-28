@@ -1,5 +1,6 @@
 import discord
 import CLI;
+import Pentest module;
 from discord.ext import commands
 
 class admin(commands.Cog):
@@ -21,3 +22,6 @@ new CLI();
 
 
 new webdashboard()
+
+
+Pentest_module();
